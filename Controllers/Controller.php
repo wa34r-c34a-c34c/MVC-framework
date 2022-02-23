@@ -20,10 +20,10 @@ abstract class Controller {
     abstract function process($params);
 
     /** 
-     * Gets view for controller
+     * Render view for controller
      * @return void
      */
-    public function getView() {
+    public function renderView() {
         if ($this->view) {
             extract($this->data);
             require("Views/".$this->view.".phtml");
