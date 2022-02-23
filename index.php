@@ -5,7 +5,9 @@ date_default_timezone_set("Europe/Prague");
 // Simple autoloader
 function autoload($class) {
     if (preg_match('/Controller$/', $class)) {
-        require("Controllers/".$class.".php");
+        print_r("$class <br>");
+        print_r(file_exists("Controllers/$class.php"));
+        require("Controllers/$class.php");
     } else {
         require("Models/".$class.".php");
     }
@@ -14,6 +16,6 @@ function autoload($class) {
 spl_autoload_register("autoload");
 
 $router = new RouterController();
-$router->process(array($_SERVER["REQUEST_URI"]));
+//$router->process(array($_SERVER["REQUEST_URI"]));
 
-$router->renderView();
+//$router->renderView();
