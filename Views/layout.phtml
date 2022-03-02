@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <base href="/localhost">
+        <meta charset="UTF-8">
+        <title><?= $title ?></title>
+        <meta name="description" content="<?= $description ?>">
+        <meta name="keywords" content="<?= $key_words ?>">
+        <link rel="stylesheet" href="/vendor/css/styl.css">
+    </head>
+    <body>
+        <header>
+            Hlavička naší stránky
+        </header>
+        <nav>
+            <li><a href="domov">Domovská stránka</a></li>
+        </nav>
+        <article>
+            <?php $this->controller->renderView(); ?>
+        </article>
+        <script src="vendor/js/script.js"></script>
+    </body>
+</html>

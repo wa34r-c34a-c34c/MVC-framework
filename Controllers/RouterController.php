@@ -1,6 +1,6 @@
 <?php
 class RouterController extends Controller {
-    protected string $controller;
+    protected $controller;
 
     private function makeCamel(string $text): string {
         return str_replace(' ', '',
@@ -19,15 +19,15 @@ class RouterController extends Controller {
     }
 
     public function process($params) {
+        // $params[0] = url adresa
         $parsed = $this->parseURL($params[0]);
-//        print_r($parsed);
+        //print_r($parsed);
         $controllerClass = $this->makeCamel(array_shift($parsed)). "Controller";
-//        print_r($controllerClass);
-//        echo $controllerClass;
+        //print_r($controllerClass);
         if (file_exists("Controllers/".$controllerClass.".php"))
             $this->controller = new $controllerClass;
         else
-            print_r("Chyba! Stránka nenalezena!");
+            $this->redirect("error");
 
         // Call page Controller
         $this->controller->process($parsed);
