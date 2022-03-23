@@ -15,6 +15,8 @@ function autoload($class) {
 
 spl_autoload_register("autoload");
 
+Db::connect("127.0.0.1", "root", "student", "mvc");
+
 $router = new RouterController();
 $router->process(array($_SERVER["REQUEST_URI"]));
 $router->renderView();
