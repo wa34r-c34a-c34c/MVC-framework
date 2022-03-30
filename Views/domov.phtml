@@ -3,4 +3,29 @@
         <h1>Vítejte!</h1>
         <p>Toto je hlavní stránka!</p>
     </div>
+    <?php if(isset($articles)): ?>
+        <section class=row>
+            <section class=row>
+                <h1>Aktuální články</h1>
+            </section>
+
+            <?php foreach($articles as $article): ?>
+                <article class=row>
+                    <?php if(isset($article["image"])): ?>
+                        <img style="height: 250px;" 
+                        alt="<?= $article["title"] ?>-obrazek" 
+                        src="<?= $article["image"] ?>">
+                    <?php endif; ?>
+                    <a href="/clanek/<?= $article["article_id"] ?>">
+                        <h3><?= $article["title"] ?></h3>
+                    </a>
+                    <p style="font-size: 11px;"><i>
+                        Klíčová slova: 
+                        <?= $article["key_words"] ?>
+                    </i></p>
+                    <p><?= $article["content"] ?></p>
+                </article>
+            <?php endforeach; ?>
+        </section>
+    <?php endif; ?>
 </div>
