@@ -1,0 +1,20 @@
+<div class=container>
+    <div class=row>
+        <h1>Vytvoř a vlož si článek do databáze!</h1>
+        <p>Toto je nástroj, jak vložit data do DB.</p>
+    </div>
+    <div class=row>
+        <?php print_r($formular); ?>
+        <form method=POST action="/vytvorclanek">
+            <label for=title>Titulek článku</label>
+            <input type=text name=title placeholder="Název článku" required>
+            <label for=key_words>Klíčová slova</label>
+            <input type=text name=key_words placeholder="Klíčová slova">
+            <label for=content>Obsah článku</label>
+            <textarea rows=5 cols=80 name=content placeholder="Obsah článku (včetně HTML)" required></textarea>
+            <label for=image>Odkaz na náhledový obrázek</label>
+            <input type=text name=image placeholder="Odkaz na náhledový obrázek">
+            <input type=submit value="Odeslat">
+        </form>
+    </div>
+</div>

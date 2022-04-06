@@ -15,4 +15,15 @@ class ArticleManager {
                 ":id" => $id,
             ));
     }
+    public static function insertArticle(Article $article) {
+        Db::singleQuery("
+            INSERT INTO mvc.articles
+            (title, key_words, content, image)
+            VALUES (:title, :key_words, :content, :image);", array(
+                ":title" => $article->title,
+                ":key_words" => $article->key_words,
+                ":content" => $article->content,
+                ":image" => $article->image,
+            ));
+    }
 }

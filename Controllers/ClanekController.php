@@ -1,5 +1,5 @@
 <?php
-class ClanekContoller extends Controller {
+class ClanekController extends Controller {
     function process($params) {
         // Header of page (title)
         if (!empty($params[0])) {

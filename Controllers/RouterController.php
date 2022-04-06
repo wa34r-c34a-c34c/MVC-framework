@@ -21,6 +21,8 @@ class RouterController extends Controller {
     public function process($params) {
         // $params[0] = url adresa
         $parsed = $this->parseURL($params[0]);
+        if (empty($parsed[0]))
+            $this->redirect("domov");
         //print_r($parsed);
         $controllerClass = $this->makeCamel(array_shift($parsed)). "Controller";
         //print_r($controllerClass);
