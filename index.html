@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Datatable</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.11.5/datatables.min.css"/>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.6.0/dt-1.11.5/datatables.min.js"></script>
+ 
+    </head>
+    <body>
+        <table id="example" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                </tr>
+            </thead>
+        </table>
+        <script>
+            // https://fakestoreapi.com/docs
+            $(document).ready(function() {
+
+                $('#example').DataTable( {
+                    "ajax": { 
+                        "url": "http://localhost/api/articles",
+                        "dataSrc": ""
+                    },
+                    "columns": [
+                        {"data": "title"},
+                        {"data": "key_words"},
+                        {"data": "content"},
+                        {"data": "image"},
+                    ],
+                    "language": {
+                        "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
+                    }
+                } );
+                
+            } );
+        </script>
+    </body>
+</html>

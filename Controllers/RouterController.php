@@ -39,7 +39,8 @@ class RouterController extends Controller {
         $this->data["description"] = $this->controller->header["description"];
         $this->data["key_words"] = $this->controller->header["key_words"];
 
-        $this->view = "layout";
+        if ($controllerClass != "ApiController")
+            $this->view = "layout";
     }
 
 }
